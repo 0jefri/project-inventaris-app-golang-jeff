@@ -1,0 +1,1 @@
+CREATE DATABASE inventaris_app;
