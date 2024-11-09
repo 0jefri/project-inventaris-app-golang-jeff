@@ -34,7 +34,7 @@ func InitDB() {
 }
 
 func SyncDB() {
-	if err := DB.AutoMigrate(&model.User{}); err != nil {
+	if err := DB.AutoMigrate(&model.User{}, &model.Category{}); err != nil {
 		fmt.Print(err.Error())
 	}
 }

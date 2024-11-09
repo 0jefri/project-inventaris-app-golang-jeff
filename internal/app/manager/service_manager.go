@@ -7,6 +7,7 @@ import (
 type ServiceManager interface {
 	UserService() service.UserService
 	AuthService() service.AuthService
+	CategoryService() service.CategoryService
 	// TransactionService() service.TransactionService
 	// BillService() service.BillService
 	// ContactService() service.ContactService
@@ -30,6 +31,10 @@ func (m *serviceManager) UserService() service.UserService {
 
 func (m *serviceManager) AuthService() service.AuthService {
 	return service.NewAuthService(m.UserService())
+}
+
+func (m *serviceManager) CategoryService() service.CategoryService {
+	return service.NewCategoryService(m.repoManager.CategoryRepo())
 }
 
 // func (m *serviceManager) TransactionService() service.TransactionService {

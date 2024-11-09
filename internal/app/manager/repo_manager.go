@@ -6,6 +6,7 @@ import (
 
 type RepoManager interface {
 	UserRepo() repository.UserRepository
+	CategoryRepo() repository.CategoryRepository
 	// TransactionRepo() repository.TransactionRepository
 	// BillRepo() repository.BillRepository
 	// ContactRepo() repository.ContactRepository
@@ -27,6 +28,10 @@ func NewRepoManager(infra InfraManager) RepoManager {
 
 func (m *repoManager) UserRepo() repository.UserRepository {
 	return repository.NewUserRepository(m.infraManager.Conn())
+}
+
+func (m *repoManager) CategoryRepo() repository.CategoryRepository {
+	return repository.NewCategoryRepository(m.infraManager.Conn())
 }
 
 // func (m *repoManager) TransactionRepo() repository.TransactionRepository {
