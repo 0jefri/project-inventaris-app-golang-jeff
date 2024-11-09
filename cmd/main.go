@@ -1,6 +1,9 @@
 package main
 
-import "github.com/project-app-inventaris/config"
+import (
+	"github.com/project-app-inventaris/config"
+	"github.com/project-app-inventaris/internal/app/delivery"
+)
 
 func init() {
 	config.InitiliazeConfig()
@@ -9,5 +12,5 @@ func init() {
 }
 
 func main() {
-
+	delivery.Server().Run()
 }
